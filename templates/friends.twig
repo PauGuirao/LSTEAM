@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+{% block title %}My Friends{% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+    <body style = "min-height: 100vh; display: flex; flex-direction:column;">
+      <main>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary m-4">Friends</h2>
+        <div class="container friend-container">
+            <a class="btn btn-success active m-3" href="#" role="button">Friends</a>
+            <a class="btn btn-success m-3" href="http://localhost:8030/user/friendRequests" role="button">Friend Requests</a>
+            <a class="btn btn-success m-3" href="http://localhost:8030/user/friendRequests/send" role="button">Send Request</a>
+        </div>
+        {# Check if the user has friends #}
+        {% if(formData|length == 0) %}
+          {# The user has no friends #}
+          <h2 class="text-center text-uppercase text-secondary" style="margin-top:100px;">You have no friends!</h2>
+          <p class="text-center">Try to send a friend request!</p>
+        {% else %}
+          {# The user has 1 or more friends #}
+          <div class="container whishlist-container">
+            {% for j in 0..formData|length - 1%}
+              <div class="card shadow" style="margin: 20px;">
+                  <div class="card-body">
+                      <h5 class="card-title">{{formData[j].name}}</h5>
+                      <p class="card-text">Since: {{formData[j].date}}</p>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </main>
+  </body>
+{% endblock %}

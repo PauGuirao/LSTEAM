@@ -1,0 +1,18 @@
+.wrapper {
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+    object-fit: cover
+}
+.signup-form a {
+	color: rgb(36, 36, 36);
+	text-decoration: underline;
+}

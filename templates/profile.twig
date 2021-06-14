@@ -1,0 +1,67 @@
+{% extends "base.twig" %}
+{% block title %} Profile {% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+    {% block registerForm %} 
+    <body>
+        {% if formWarning.updated %}
+            <div class="alert alert-primary position-absolute" role="alert" style="max-width:300px; top:120px; right:20px; opacity: 0.7;">
+                  {{ formWarning.updated }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div> 
+        {% endif %}
+        <div style = "display: grid; grid-template-columns: 60% 40%;">
+            <div class="signup-form" style="margin-right:10px;">
+                <form id="login-form" method="POST" enctype='multipart/form-data'>
+                    <h2>Account</h2>
+                    <div class="d-flex align-items-start py-3"> 
+                        <img src="uploads/image_{{formImg.uuid}}.png" class="img" alt="">
+                        <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
+                            <p>Accepted file less than 1MB</p>
+                            <input type="file" name="file" class="form-control">
+                            {% if formErrors.image %}
+                                <p style="color: #ff6347;">{{ formErrors.image }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                    <h5 class="border-bottom"> Details </h5>
+                        <input type="text" class="form-control" placeholder="{{formData.username}}" name="mail" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="{{formData.email}}" name="password" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="string" class="form-control" placeholder="{{formData.birthdate}}" name="birthdate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" value="{{formData.phone}}" name="phone">
+                        {% if formErrors.phone %}
+                                <p style="color: #ff6347;">{{ formErrors.phone }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-success btn-lg btn-block" value="Update">Update</button>
+                    </div>
+                </form>
+                <div class="text-center">Want to change your password? <a href="http://localhost:8030/profile/changePassword">Change it</a></div>
+            </div>
+
+            <div class="card" style="width: 17.8rem; margin:30px; height: 15rem; background:#f2f3f7;">
+
+                <div class="card-body">
+                    <a class="btn btn-success mb-2" style="width: 15rem;" href="http://localhost:8030/user/friends" role="button">FRIENDS</a>
+                    <a class="btn btn-success mb-2" style="width: 15rem;" href="http://localhost:8030/user/myGames" role="button">MY GAMES</a>
+                    <a class="btn btn-success mb-2" style="width: 15rem;" href="http://localhost:8030/user/wishlist" role="button">WISHLIST</a>
+                    <a class="btn btn-success mb-2" style="width: 15rem;" href="http://localhost:8030/user/wallet" role="button">WALLET</a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    {% endblock %}
+{% endblock %}

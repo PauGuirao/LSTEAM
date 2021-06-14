@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block title %}Activate page{% endblock %}
+
+{% block content %}
+    {% if tokenError %}
+        <h1>Error, this account has been activated already!</h1>
+    {% else %}
+       <div class="jumbotron text-center">
+            <h1 class="display-3">Thanks for activating your account!</h1>
+            <p class="lead"><strong>Please check your email</strong></p>
+            <hr>
+            <p>
+                Having trouble? <a href="">Contact us</a>
+            </p>
+            <p class="lead">
+                <a class="btn btn-primary btn-sm" href="" role="button">Continue to homepage</a>
+            </p>
+        </div>
+    {% endif %}
+{% endblock %}

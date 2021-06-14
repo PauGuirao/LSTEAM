@@ -1,0 +1,65 @@
+{% extends "base.twig" %}
+{% block title %} Register {% endblock %}
+{% block profilelogo %} {% endblock %}
+{% block content %}
+    {% block registerForm %} 
+    <body>
+    <div class="signup-form">
+        <form id="register-form" method="POST">
+            <h2>Register</h2>
+            <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" value="{{formData.username}}" placeholder="Enter username" required="required">
+                {% if formErrors.username %}
+                    <p style="color: #ff6347;">{{ formErrors.username }}</p>
+                {% endif %}       	
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" name="mail" value="{{formData.mail}}" placeholder="Email" required="required">
+                {% if formErrors.mail %}
+                    <p style="color: #ff6347;">{{ formErrors.mail }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="password1" placeholder="Password" required="required">
+                {% if formErrors.password1 %}
+                    <p style="color: #ff6347;">{{ formErrors.password1 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required="required">
+                {% if formErrors.match %}
+                    <p style="color: #ff6347;">{{ formErrors.match }}</p>
+                {% endif %}
+            </div>  
+            <div class="form-group">
+                <input type="text" class="form-control" name="birthdate" value="{{formData.birthdate}}" placeholder="dd/mm/yyyy">
+                {% if formErrors.birthdate %}
+                    <p style="color: #ff6347;">{{ formErrors.birthdate }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <input type="tel" class="form-control" name="phone" value="{{formData.phone}}" placeholder="Phone">
+                <p class="optionalText">optional</p>
+                {% if formErrors.phone %}
+                    <p style="color: #ff6347;">{{ formErrors.phone }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block" value="Register">Register Now</button>
+            </div>
+        </form>
+        <div class="text-center">
+            {% if formErrors.emailSent %}
+                    <h4  class style="color: #636363;">{{ formErrors.emailSent }}</h4>
+            {% endif %}
+        </div>
+    </div>
+    </body>
+    {% endblock %}
+{% endblock %}

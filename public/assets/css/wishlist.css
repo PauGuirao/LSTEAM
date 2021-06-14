@@ -1,0 +1,146 @@
+.whishlist-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.friend-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.shop-default #divProductList {
+    transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out
+}
+
+.shop-default .shop-grid-section-header {
+    height: 62px;
+    padding: 15px;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.shop-default .shop-grid-section-header .shop-grid-section-title {
+    margin: 0;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #111
+}
+
+.shop-default .shop-grid-section-footer {
+    padding: 1rem
+}
+
+.shop-default .btn-view-mode {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-right: 0;
+    color: #eceeef
+}
+
+.shop-default .btn-view-mode.active {
+    color: #2b2b2c
+}
+
+.shop-default .aux-text {
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: .875rem;
+    color: #2b2b2c
+}
+
+.shop-default .btn-reset-filters {
+    font-weight: 400
+}
+
+.shop-default .btn-reset-filters>i {
+    margin-right: 5px;
+    font-size: 13px
+}
+
+.shop-default .product .price-wrapper .price {
+    font-size: 32px;
+    color: #2b2b2c
+}
+
+.shop-default .product .price-wrapper .price sup {
+    font-size: 16px;
+    top: -1em;
+    font-weight: 400
+}
+
+.shop-default .product .price-wrapper .price .price-value {
+    margin: 0 3px
+}
+
+.shop-default .product .price-wrapper .price.discount {
+    text-decoration: none;
+    margin-right: 8px
+}
+
+.shop-default .product .price-wrapper .price.discount .price-value {
+    margin: 0 1px;
+    font-weight: 400;
+    font-size: 24px;
+    text-decoration: line-through
+}
+
+.shop-default .product .price-wrapper .price.discount sup {
+    font-size: 14px
+}
+
+.shop-default .product .price-wrapper .price.discount sup.price-value-dec {
+    text-decoration: line-through
+}
+
+.shop-default .product .product-colors .product-colors-label {
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    color: #2b2b2c;
+    font-size: .75rem;
+    font-weight: 500
+}
+i
+.shop-default .product .product-colors .color-switch a {
+    display: inline-block;
+    float: none !important;
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    margin-bottom: 0;
+    border-radius: .25rem
+}
+
+.shop-default .filter-sidebar {
+    padding: 30px
+}
+
+.shop-default .filter-sidebar .filter-checkbox .checkbox {
+    margin-bottom: 15px
+}
+
+.shop-default .filter-sidebar .filter-checkbox .checkbox label {
+    padding-left: 10px
+}
+
+.shop-default .product figure {
+    border: 0
+}
+
+.shop-default .product .switch-on-hover img {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out
+}
+
+.shop-default .product .switch-on-hover img.img-primary {
+    display: block;
+    opacity: 1
+}
+
+.wishlist-img{
+    min-width: 500px;
+}

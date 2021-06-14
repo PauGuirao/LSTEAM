@@ -1,0 +1,43 @@
+{% extends "base.twig" %}
+{% block title %}My Friend Requests{% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+    <body style = "min-height: 100vh; display: flex; flex-direction:column;">
+      <main>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary m-4">Friend Requests</h2>
+        <div class="container friend-container">
+            <a class="btn btn-success m-3" href="http://localhost:8030/user/friends" role="button">Friends</a>
+            <a class="btn btn-success active m-3" href="http://localhost:8030/user/friendRequests" role="button">Friend Requests</a>
+            <a class="btn btn-success m-3" href="http://localhost:8030/user/friendRequests/send" role="button">Send Request</a>
+        </div>
+        {# Check if the user has friends requests #}
+        {% if(formData|length == 0) %}
+          {# The user has no friends requests #}
+          <h2 class="text-center text-uppercase text-secondary mt-5">You have no requests</h2>
+          <p class="text-center">Try to send one yourself!</p>
+        {% else %}
+          {# The user has one or more friends requests #}
+          <div class="container">
+              {% for j in 0..formData|length - 1%}
+                <div class="card shadow" style="margin: 20px;">
+                  <div class="container whishlist-container">
+                    <div class="card-body">
+                        <h3 class="card-title mt-4">{{formData[j].user_sender}}</h3>
+                        <p>wants to be your friend</p>
+                    </div>
+                    <div class="card-body">
+                        <form action = "friendRequests/accept/{{formData[j].request_id}}" method = "post">
+                            <button type="submit" class="btn btn-success btn-lg btn-block mb-3 ml-3" value="Login">Accept</button>
+                        </form>
+                        <form action = "friendRequests/decline/{{formData[j].request_id}}" method = "post">
+                            <button type="submit" class="btn btn-danger btn-lg btn-block mt-3 ml-3" value="Login">Decline</button>
+                        </form>
+                    </div>
+                  </div>    
+                </div>
+              {% endfor %}
+          </div>
+        {% endif %}
+      </main>
+  </body>
+{% endblock %}

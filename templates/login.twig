@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+{% block title %} Login {% endblock %}
+{% block profilelogo %} {% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+    {% block loginForm %} 
+    <body style = "min-height: 100vh; display: flex; flex-direction:column;">
+        <div class="signup-form mt-5 pb-0"> 
+            <form id="login-form" method="POST">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Mail or username" name="mail" value="{{formData.mail}}" required="required">
+                    {% if formErrors.mail %}
+                        <p style="color: #ff6347;">{{ formErrors.mail }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="password" name="password" required="required">
+                    {% if formErrors.password %}
+                        <p style="color: #ff6347;">{{ formErrors.password }}</p>
+                    {% endif %}
+                    {% if formErrors.found %}
+                        <p style="color: #ff6347;">{{ formErrors.found }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block" value="Login">Login</button>
+            </div>
+            </form>
+        </div>
+        <div class="text-center">Don't have an account?  <a href="http://localhost:8030/register">Create account!</a></div>
+    </body>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+{% block title %}Store page{% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+<body>
+
+    <main>
+        {% if formNotifications %}
+              <div class="alert alert-primary position-absolute" role="alert" style="max-width:320px; top:120px; right:20px; opacity: 0.7;">
+                  {{formNotifications}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div> 
+        {% endif %}
+        
+        <h2 class="page-section-heading text-center text-uppercase text-secondary m-4">STORE</h2>
+        <div class="container whishlist-container">
+            {% for j in 0..json|length - 1%}
+              <div class="card shadow bg-secondary" style="margin: 20px;">
+                  <img class="card-img-top" src="{{json[j].thumb}}" style="width: 502px; height: 300px;">
+                  <div class="card-body">
+                      <h5 class="card-title text-light">{{json[j].title}}</h5>
+                      <p class="lead text-light">Id:{{json[j].gameID}} Price: {{json[j].normalPrice}}$</p>
+                      <div class="justify-content-between" style = "display: grid; grid-template-columns: 75% 20%;">
+                          <form action = "store/buy/{{json[j].gameID}}" method = "post">
+                            <button type="submit" class="btn btn-block btn-success btn-circle btn-icon-left"><i class="fa fa-shopping-cart"></i> Buy {{json[j].normalPrice}}$</button>
+                          </form>
+                          <form action = "user/wishlist/{{json[j].gameID}}" method = "post">
+                            <button type="submit" class="btn btn-block btn-info btn-circle btn-icon-left"><i class="fa fa-heart"></i></button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+        </div> 
+      </main>
+
+  </body>
+{% endblock %}

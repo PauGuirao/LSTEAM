@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+{% block title %}Game page{% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+    <body>
+        <main>
+        <div class="d-flex justify-content-center">
+            <div class="card" style="margin: 20px; width: 37.7rem;">
+                <img class="card-img-top" src="{{formData.thumbnail}}" style="width: 600px; height: 400px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{formData.title}}</h5>
+                    <p class="card-textI">Id: {{formData.game_id}}</p>
+                    <p class="card-text">Price: {{formData.price}}</p>
+                </div>
+            </div>
+        </div>
+        </main>
+  </body>
+{% endblock %}

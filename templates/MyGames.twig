@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+{% block title %}My Games{% endblock %}
+{% block instore %}{% endblock %}
+{% block content %}
+<body style = "min-height: 100vh; display: flex; flex-direction:column;">
+
+<main>
+<h2 class="page-section-heading text-center text-uppercase text-secondary m-4">My Games</h2>
+    {% if(json|length == 0) %}
+        <h2 class="text-center text-uppercase text-secondary" style="margin-top:200px;">Library is empty</h2>
+        <p class="text-center">Try to add some games!</p>
+        <div class="col text-center">
+            <a class="btn btn-primary" href="http://localhost:8030/store" role="button">Go Store</a>
+        </div>
+    {% else %}
+        <div class="container whishlist-container">
+          {% for j in 0..json|length - 1%}
+            <div class="card shadow" style="margin: 20px;">
+                <img class="card-img-top" src="{{json[j].thumbnail}}" style="width: 502px; height: 300px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{json[j].title}}</h5>
+                    <p class="lead">Id: {{json[j].game_id}} Price: {{json[j].price}}$</p>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    {% endif %}
+
+
+</main>
+  </body>
+{% endblock %}
