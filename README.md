@@ -1,5 +1,5 @@
 ### MySQL database test
-<img src="Screenshoot_4.png" alt="Example Render" width="900" height="350">
+<img src="Screenshot_4.png" alt="Example Render" width="900" height="350">
 
 This creates the database.
 
