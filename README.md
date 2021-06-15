@@ -1,6 +1,6 @@
 ### MySQL database test
-<img src="Screenshot_4.png" alt="Example Render" width="900" height="350">
-
+<img src="Screenshot_4.png" alt="Example Render" width="800" height="450">
+<img src="Screenshot_1.png" alt="Example Render" width="800" height="450">
 This creates the database.
 
 ```sql
